@@ -1,59 +1,70 @@
-# ProductFrontend
+# Product Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
+Aplicación frontend desarrollada con **Angular** que consume la API REST del backend ([Product-Backend](https://github.com/KevinnC18/Product-Backend)) para la **gestión de productos** (listar, crear, actualizar y eliminar).
 
-## Development server
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 20.3.9.
 
-To start a local development server, run:
+## Características
+
+- **Listado de productos** obtenidos desde el backend.
+- **Creación, edición y eliminación** de productos.
+- Integración con el backend Spring Boot a través de peticiones HTTP.
+- Estructura estándar de proyecto Angular (módulos, componentes y servicios).
+
+## Requisitos previos
+
+- **Node.js** y **npm** instalados.
+- **Angular CLI** (versión 20.x o compatible):
+
+  ```bash
+  npm install -g @angular/cli
+  ```
+
+- Backend `product-backend` corriendo en `http://localhost:8080` (API en `http://localhost:8080/api/productos`).
+
+## Configuración de la URL de la API
+
+Normalmente la URL base de la API se configura en los archivos de entorno de Angular, por ejemplo:
+
+```ts
+// environment.ts (ejemplo)
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:8080/api'
+};
+```
+
+Asegúrate de que esta URL coincida con la del backend (`/api/productos`).
+
+## Servidor de desarrollo
+
+Para arrancar el servidor de desarrollo:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Luego abre tu navegador en `http://localhost:4200/`.  
+La aplicación se recargará automáticamente al detectar cambios en los archivos fuente.
 
-## Code scaffolding
+## Construcción (build)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Para generar el build de producción:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Los artefactos se generarán en el directorio `dist/`.  
+El build de producción viene optimizado para rendimiento.
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Flujo de ejecución del proyecto fullstack
 
-```bash
-ng test
-```
+1. **Levantar la base de datos PostgreSQL** y el backend `product-backend`:
+   - Backend corriendo en `http://localhost:8080`.
+2. **Arrancar este frontend** con `ng serve`:
+   - Frontend disponible en `http://localhost:4200`.
+3. Navegar a la aplicación y gestionar productos desde la interfaz, que se comunica con la API REST del backend.
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
